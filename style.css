@@ -17,6 +17,8 @@ body {
 
 canvas {
     background-color: black;
+    width: 500px;
+    height: 500px;
 }
 
 .inf {
@@ -147,3 +149,4 @@ span.destaque {
         left: 0;
     }
 }
+
