@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+AU+QLD:wght@100..400&display=swap');
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    background-color: rgb(85, 85, 85);
+}
+
+canvas {
+    background-color: black;
+}
+
+.inf {
+    margin: 0.5rem;
+    font-size: 2.5rem;
+}
+
+.painel {
+    position: relative;
+    top: 50px;
+    background-color: rgb(31, 31, 31);
+    margin-left: 10px;
+    border-radius: 20px;
+    display: none;
+    padding: 10px 0 0 30px;
+    width: 650px;
+    height: 360px;
+    color: white;
+}
+
+span.destaque {
+    color: rgb(255, 230, 0);
+    font-weight: bold;
+}
+
+
+#botoes {
+    display: flex;
+    justify-content: center;
+}
+
+.botao {
+    height: 70px;
+    width: 150px;
+    margin: 0 10px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(32, 32, 32);
+    color: white;
+    border: none;
+    border-radius: 20px;
+}
+
+.botao:hover {
+    transform: scale(1.05);
+}
+
+.ativo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#paineis {
+    margin-left: 20px;
+}
