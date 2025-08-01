@@ -109,7 +109,7 @@ span.destaque {
         margin-top: 20px;
         position: relative;
         width: 300px;
-        margin-top: 80px;
+        margin-top: 60px;
     }
 
     .direcional-cll {
@@ -146,4 +146,5 @@ span.destaque {
         left: 0;
     }
 }
+
 
