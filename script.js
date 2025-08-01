@@ -9,7 +9,7 @@ const botoes = document.querySelectorAll('.botao')
 const direcionais = document.querySelectorAll('.direcional-cll')
 
 
-const tam = 25
+const tam = canvas.width / 20
 let direcao = 'und', cobralistx, cobralisty, isPaused = false, contagem, countMoves = 0, passos = 0
 
 let tempo = {
@@ -300,5 +300,6 @@ document.addEventListener('keydown', (tecla) => {
         isPaused = !isPaused
     }
 })
+
 
 
