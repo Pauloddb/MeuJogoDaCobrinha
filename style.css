@@ -108,13 +108,13 @@ span.destaque {
         display: block;
         margin-top: 20px;
         position: relative;
-        width: 600px;
+        width: 300px;
         margin-top: 80px;
     }
 
     .direcional-cll {
-        width: 200px;
-        height: 200px;
+        width: 100px;
+        height: 100px;
         margin: 0;
         position: absolute;
         background-color: rgb(255, 0, 0);
@@ -122,7 +122,7 @@ span.destaque {
         cursor: pointer;
         border-radius: 10px;
         color: white;
-        font-size: 100px;
+        font-size: 50px;
     }
 
     .direcional-cll:hover {
@@ -131,18 +131,19 @@ span.destaque {
     
     #btn-du {
         top: 0;
-        left: 200px;
+        left: 100px;
     }
     #btn-dr {
-        top: 200px;
-        left: 400px;
-    }
-    #btn-dd {
-        top: 400px;
+        top: 100px;
         left: 200px;
     }
-    #btn-dl {
+    #btn-dd {
         top: 200px;
+        left: 100px;
+    }
+    #btn-dl {
+        top: 100px;
         left: 0;
     }
 }
+
