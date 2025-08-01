@@ -114,6 +114,7 @@ span.destaque {
         position: relative;
         width: 300px;
         margin-top: 80px;
+        margin: 0 auto;
     }
 
     .direcional-cll {
@@ -155,6 +156,7 @@ span.destaque {
         height: 500px;
     }
 }
+
 
 
 
