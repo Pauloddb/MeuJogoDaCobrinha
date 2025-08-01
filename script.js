@@ -6,6 +6,7 @@ const passosTxt = document.getElementById('passos')
 const direcaoTxt = document.getElementById('direcao')
 const paineis = document.querySelectorAll('.painel')
 const botoes = document.querySelectorAll('.botao')
+const direcionais = document.querySelectorAll('.direcional-cll')
 
 
 const tam = 30
@@ -64,6 +65,16 @@ botoes.forEach((botao) => {
             }
         })
     })  
+})
+
+
+direcionais.forEach(direcional => {
+    direcional.addEventListener('click', (e) => { 
+        if (direcional.id.includes('du') && direcao !== 'baixo') direcao = 'cima'
+        else if (direcional.id.includes('dd') && direcao !== 'cima') direcao = 'baixo'
+        else if (direcional.id.includes('dl') && direcao !== 'direita' && direcao != 'und') direcao = 'esquerda'
+        else if (direcional.id.includes('dr') && direcao !== 'esquerda') direcao = 'direita'
+    })
 })
 
 
@@ -289,3 +300,4 @@ document.addEventListener('keydown', (tecla) => {
         isPaused = !isPaused
     }
 })
+
