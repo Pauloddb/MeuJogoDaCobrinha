@@ -10,6 +10,7 @@ const direcionais = document.querySelectorAll('.direcional-cll')
 
 
 if (window.innerWidth <= 768) {
+  console.log(1)
   canvas.width = window.innerWidth - 20  // tira um espacinho da margem
   canvas.height = canvas.width
 }
@@ -305,6 +306,7 @@ document.addEventListener('keydown', (tecla) => {
         isPaused = !isPaused
     }
 })
+
 
 
 
