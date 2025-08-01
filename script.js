@@ -9,6 +9,12 @@ const botoes = document.querySelectorAll('.botao')
 const direcionais = document.querySelectorAll('.direcional-cll')
 
 
+if (window.innerWidth <= 768) {
+  canvas.width = window.innerWidth - 20  // tira um espacinho da margem
+  canvas.height = canvas.width
+}
+
+
 const tam = canvas.width / 20
 let direcao = 'und', cobralistx, cobralisty, isPaused = false, contagem, countMoves = 0, passos = 0
 
@@ -165,7 +171,6 @@ const moverCobra = () => {
     
 
     if('direita esquerda cima baixo'.includes(direcao)){
-        console.log(passos)
         if (direcao == 'direita') {
             if (head.x + tam == comida.x && head.y == comida.y) {
                 gerarNovaComida()
@@ -300,6 +305,7 @@ document.addEventListener('keydown', (tecla) => {
         isPaused = !isPaused
     }
 })
+
 
 
 
