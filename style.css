@@ -17,8 +17,8 @@ body {
 
 canvas {
     background-color: black;
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
 }
 
 .inf {
@@ -148,5 +148,11 @@ span.destaque {
         top: 200px;
         left: 0;
     }
+
+    canvas {
+        width: 500px;
+        height: 500px;
+    }
 }
+
 
