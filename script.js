@@ -87,9 +87,9 @@ direcionais.forEach(direcional => {
 
 
 let cobra = [
-    {x: 270, y: 300, color: 'green'},
-    {x: 300, y: 300, color: 'green'},
-    {x: 330, y: 300, color: 'limegreen'}
+    {x: canvas.width / 2 - tam, y: canvas.width / 2, color: 'green'},
+    {x: canvas.width / 2, y: canvas.width / 2, color: 'green'},
+    {x: canvas.width / 2 + tam, y: canvas.width / 2, color: 'limegreen'}
 ]
 let head = cobra.at(-1)
 
@@ -306,6 +306,7 @@ document.addEventListener('keydown', (tecla) => {
         isPaused = !isPaused
     }
 })
+
 
 
 
