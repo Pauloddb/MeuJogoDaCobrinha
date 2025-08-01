@@ -224,8 +224,8 @@ const moverCobra = () => {
         }
 
         passos++
-        passosTxt.textContent = `Steps: ${passos}`
-        direcaoTxt.textContent = `Direction: ${direcao}`
+        passosTxt.textContent = `Passos: ${passos}`
+        direcaoTxt.textContent = `Direção: ${direcao}`
     }
     
 
@@ -239,7 +239,7 @@ const moverCobra = () => {
     cobralisty = [...listay]
 
     
-    score.textContent = `Score: ${cobra.length - 3}`
+    score.textContent = `Pontuação: ${cobra.length - 3}`
 
     cobra.at(-2).color = 'green'
     desenharCobra()
