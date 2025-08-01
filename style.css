@@ -17,8 +17,6 @@ body {
 
 canvas {
     background-color: black;
-    width: 600px;
-    height: 600px;
 }
 
 .inf {
@@ -75,18 +73,16 @@ span.destaque {
 
 #paineis {
     margin-left: 20px;
-
 }
 
 #direcionais {
     display: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     body {
         flex-direction: column;
         align-items: center;
-        height: 1500px;
     }
 
     .painel {
@@ -112,14 +108,13 @@ span.destaque {
         display: block;
         margin-top: 20px;
         position: relative;
-        width: 300px;
+        width: 600px;
         margin-top: 80px;
-        margin: 0 auto;
     }
 
     .direcional-cll {
-        width: 100px;
-        height: 100px;
+        width: 200px;
+        height: 200px;
         margin: 0;
         position: absolute;
         background-color: rgb(255, 0, 0);
@@ -127,7 +122,7 @@ span.destaque {
         cursor: pointer;
         border-radius: 10px;
         color: white;
-        font-size: 50px;
+        font-size: 100px;
     }
 
     .direcional-cll:hover {
@@ -136,27 +131,18 @@ span.destaque {
     
     #btn-du {
         top: 0;
-        left: 100px;
-    }
-    #btn-dr {
-        top: 100px;
         left: 200px;
     }
-    #btn-dd {
+    #btn-dr {
         top: 200px;
-        left: 100px;
+        left: 400px;
+    }
+    #btn-dd {
+        top: 400px;
+        left: 200px;
     }
     #btn-dl {
-        top: 100px;
+        top: 200px;
         left: 0;
     }
-
-    canvas {
-        width: 500px;
-        height: 500px;
-    }
 }
-
-
-
-
