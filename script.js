@@ -7,7 +7,13 @@ const direcaoTxt = document.getElementById('direcao')
 const paineis = document.querySelectorAll('.painel')
 const botoes = document.querySelectorAll('.botao')
 const direcionais = document.querySelectorAll('.direcional-cll')
+const speedTxt = document.getElementById('speed')
 
+
+let speed = 300
+const minSpeed = 100
+let lastSpeed = speed
+const ganhoSpeed = 10
 
 const tam = canvas.width / 20
 let direcao = 'und', cobralistx, cobralisty, isPaused = false, contagem, countMoves = 0, passos = 0
@@ -20,12 +26,15 @@ let tempo = {
 
 
 
+
+//&larr; &uarr; &rarr; &darr;
+
 const funcMovimento = (e) => {
     if ('wasd'.includes(e.key)){
-        if ((e.key == 'ArrowUp' || e.key == 'w') && direcao != 'baixo') direcao = 'cima'
-        else if ((e.key == 'ArrowDown' || e.key == 's') && direcao != 'cima') direcao = 'baixo'
-        else if ((e.key == 'ArrowLeft' || e.key == 'a') && direcao != 'direita' && direcao != 'und') direcao = 'esquerda'
-        else if ((e.key == 'ArrowRight' || e.key == 'd') && direcao != 'esquerda') direcao = 'direita'
+        if ((e.key == 'ArrowUp' || e.key == 'w') && direcao != '&darr;') direcao = '&uarr;'
+        else if ((e.key == 'ArrowDown' || e.key == 's') && direcao != '&uarr;') direcao = '&darr;'
+        else if ((e.key == 'ArrowLeft' || e.key == 'a') && direcao != '&rarr;' && direcao != 'und') direcao = '&larr;'
+        else if ((e.key == 'ArrowRight' || e.key == 'd') && direcao != '&larr;') direcao = '&rarr;'
 
         countMoves++
 
@@ -70,21 +79,27 @@ botoes.forEach((botao) => {
 })
 
 
+
+
+
 direcionais.forEach(direcional => {
     direcional.addEventListener('click', (e) => { 
-        if (direcional.id.includes('du') && direcao !== 'baixo') direcao = 'cima'
-        else if (direcional.id.includes('dd') && direcao !== 'cima') direcao = 'baixo'
-        else if (direcional.id.includes('dl') && direcao !== 'direita' && direcao != 'und') direcao = 'esquerda'
-        else if (direcional.id.includes('dr') && direcao !== 'esquerda') direcao = 'direita'
+        if (direcional.id.includes('du') && direcao !== '&darr;') direcao = '&uarr;'
+        else if (direcional.id.includes('dd') && direcao !== '&uarr;') direcao = '&darr;'
+        else if (direcional.id.includes('dl') && direcao !== '&rarr;' && direcao != 'und') direcao = '&larr;'
+        else if (direcional.id.includes('dr') && direcao !== '&larr;') direcao = '&rarr;'
     })
 })
 
 
 
+
+
+
 let cobra = [
-    {x: canvas.width / 2 - tam, y: canvas.width / 2, color: 'green'},
-    {x: canvas.width / 2, y: canvas.width / 2, color: 'green'},
-    {x: canvas.width / 2 + tam, y: canvas.width / 2, color: 'limegreen'}
+    { x: canvas.width / 2 - tam, y: canvas.width / 2, color: 'green'     },
+    { x: canvas.width / 2,       y: canvas.width / 2, color: 'green'     },
+    { x: canvas.width / 2 + tam, y: canvas.width / 2, color: 'limegreen' }
 ]
 let head = cobra.at(-1)
 
@@ -166,17 +181,25 @@ const moverCobra = () => {
     head = cobra.at(-1)
     
 
-    if('direita esquerda cima baixo'.includes(direcao)){
-        console.log(passos)
-        if (direcao == 'direita') {
+    if('&larr; &uarr; &rarr; &darr;'.includes(direcao)){
+        //console.log(passos)
+        if (direcao == '&rarr;') {
             if (head.x + tam == comida.x && head.y == comida.y) {
                 gerarNovaComida()
+
+                if (speed > minSpeed) speed -= ganhoSpeed
+                speedTxt.textContent = `Velocidade: ${speed}`
+                
             } else {
                 cobra.shift()
             }
 
+
+
             if (cobra.some(bloco => bloco.x == head.x + tam && bloco.y == head.y)) location.reload()
             if (cobra.some(bloco => bloco.x == canvas.width - tam)) location.reload()
+
+
             
             cobra.push({
                 x: head.x + tam,
@@ -185,9 +208,13 @@ const moverCobra = () => {
             })
         }
 
-        if (direcao == 'esquerda') {
+        if (direcao == '&larr;') {
             if (head.x - tam == comida.x && head.y == comida.y) {
                 gerarNovaComida()
+
+                if (speed > minSpeed) speed -= ganhoSpeed
+                speedTxt.textContent = `Velocidade: ${speed}`
+
             } else {
                 cobra.shift()
             }
@@ -202,9 +229,13 @@ const moverCobra = () => {
             })
         }
 
-        if (direcao == 'cima') {
+        if (direcao == '&uarr;') {
             if (head.x == comida.x && head.y - tam == comida.y) {
                 gerarNovaComida()
+
+                if (speed > minSpeed) speed -= ganhoSpeed
+                speedTxt.textContent = `Velocidade: ${speed}`
+
             } else {
                 cobra.shift()
             }
@@ -219,9 +250,13 @@ const moverCobra = () => {
             })
         }
 
-        if (direcao == 'baixo') {
+        if (direcao == '&darr;') {
             if (head.x == comida.x && head.y + tam == comida.y) {
                 gerarNovaComida()
+
+                if (speed > minSpeed) speed -= ganhoSpeed
+                speedTxt.textContent = `Velocidade: ${speed}`
+
             } else {
                 cobra.shift()
             }
@@ -238,7 +273,7 @@ const moverCobra = () => {
 
         passos++
         passosTxt.textContent = `Passos: ${passos}`
-        direcaoTxt.textContent = `Direção: ${direcao}`
+        direcaoTxt.innerHTML = `Direção: ${direcao}`
     }
     
 
@@ -260,14 +295,15 @@ const moverCobra = () => {
 
 
 
-desenharCobra()
-desenharGrade()
-moverCobra()
+let idSetTimeout = null
+const loopMovimento = () => {
+    if (isPaused) return
 
-let movimento = setInterval(moverCobra, 100)
+    moverCobra()
+    idSetTimeout = setTimeout(loopMovimento, speed)
+}
 
-
-
+loopMovimento()
 
 document.addEventListener('keydown', (tecla) => {
     if (tecla.key === ' '){
@@ -286,19 +322,25 @@ document.addEventListener('keydown', (tecla) => {
                 timerTxt.textContent = `${Number(tempo.min).toString().padStart(2, '0')}:${Number(tempo.seg).toString().padStart(2, '0')}:${Number(tempo.mls).toString().padStart(2, '0')}`
             }, 10)
 
-            movimento = setInterval(moverCobra, 100)
+            
+            
 
             document.addEventListener('keydown', funcMovimento)
             //console.log('Não Pausado')
 
         } else if (!isPaused){
-            clearInterval(movimento)
+            clearTimeout(idSetTimeout)
+            idSetTimeout = null
+
             clearInterval(contagem)
+            if (contagem) clearInterval(contagem)
+            
 
             document.removeEventListener('keydown', funcMovimento)
             //console.log('Pausado')
         }
 
         isPaused = !isPaused
+        loopMovimento()
     }
 })
